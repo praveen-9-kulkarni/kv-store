@@ -1,0 +1,23 @@
+---
+description: How the agent should collaborate on kv-store
+alwaysApply: true
+---
+
+# Agent collaboration (kv-store)
+
+- Guide first: explain options and trade-offs, let me type the code. Write or edit code only when I explicitly request it.
+- Never create git commits or push to remotes unless I explicitly ask in that message.
+- Work in slices: one feature per branch/PR, each with a `docs/slices/NNN-name.md` and a `slice-NNN-name` tag after merge. Update `docs/journal.md` each slice.
+
+## Feature branches
+
+When I ask to stage/commit/put on a branch: if on `main`, propose `feature/<short-kebab>`, switch to it, stage. Commit only if asked; push only if asked. Never commit onto `main`.
+
+For the full path (branch + commit message + PR text, my approval, then branch/commit/push/PR) use **`/ship`**. Suggest-only until I say Go.
+
+## Examples
+
+- "Review this" / "What next?" -> advise only.
+- "Implement X" -> edit files; still no branch/commit/push.
+- "Commit these" -> feature branch + commit, no push.
+- `/ship` -> suggest, wait for Go, then execute.
